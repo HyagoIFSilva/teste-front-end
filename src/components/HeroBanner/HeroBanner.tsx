@@ -1,9 +1,16 @@
 import React from 'react';
+import heroBg from '../../assets/container_inicial.jpg';
 import './HeroBanner.scss';
 
 export const HeroBanner: React.FC = () => {
   return (
-    <section className="hero-banner" aria-label="Promoção em destaque">
+    <section
+      className="hero-banner"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url(${heroBg})`,
+      }}
+      aria-label="Promoção em destaque"
+    >
       <div className="hero-banner__overlay">
         <div className="container hero-banner__container">
           <div className="hero-banner__content">

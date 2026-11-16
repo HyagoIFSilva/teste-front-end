@@ -1,4 +1,5 @@
 import React from 'react';
+import parceirosBg from '../../assets/container_parceiria.jpg';
 import './PromoBanners.scss';
 
 interface PromoBannerItem {
@@ -16,8 +17,7 @@ const defaultPromos: PromoBannerItem[] = [
     title: 'Parceiros',
     description: 'Lorem ipsum dolor sit amet, consectetur',
     buttonText: 'CONFIRA',
-    imageUrl:
-      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800&auto=format&fit=crop',
+    imageUrl: parceirosBg,
     link: '#parceiros',
   },
   {
@@ -25,8 +25,7 @@ const defaultPromos: PromoBannerItem[] = [
     title: 'Parceiros',
     description: 'Lorem ipsum dolor sit amet, consectetur',
     buttonText: 'CONFIRA',
-    imageUrl:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop',
+    imageUrl: parceirosBg,
     link: '#parceiros',
   },
 ];
