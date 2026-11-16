@@ -92,7 +92,7 @@ export const Header: React.FC = () => {
             </svg>
           </a>
 
-          {/* Campo de Busca */}
+          {}
           <form className="header__search" onSubmit={handleSearchSubmit} role="search">
             <input
               type="text"

@@ -1,0 +1,107 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 395px;
+  background-color: #111111;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+    url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+
+  @include respond-to(tablet) {
+    height: 320px;
+  }
+
+  @include respond-to(mobile) {
+    height: 280px;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 600px;
+    color: $color-white;
+
+    @include respond-to(mobile) {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    @include respond-to(tablet) {
+      font-size: 2rem;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 1.625rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    span {
+      color: #F71963;
+      font-weight: 700;
+    }
+
+    @include respond-to(tablet) {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 1.15rem;
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.85rem 2.25rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 14px rgba(247, 25, 99, 0.4);
+    transition: $transition-default;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(247, 25, 99, 0.5);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

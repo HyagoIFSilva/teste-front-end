@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.category-nav {
+  padding: 2.5rem 0 1.5rem;
+  background-color: $color-white;
+
+  &__container {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-width: max-content;
+    padding: 0.5rem 0.25rem;
+
+    @include respond-to(desktop-sm) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    transition: $transition-default;
+    width: 128px;
+
+    @include respond-to(mobile) {
+      width: 100px;
+    }
+
+    &:hover {
+      .category-nav__icon-box {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-color: rgba(247, 25, 99, 0.3);
+      }
+
+      .category-nav__name {
+        color: $color-primary;
+      }
+    }
+
+    &--active {
+      .category-nav__icon-box {
+        border-color: $color-primary;
+        background-color: $color-white;
+        box-shadow: 0 4px 16px rgba(247, 25, 99, 0.15);
+      }
+
+      .category-nav__name {
+        color: $color-primary;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__icon-box {
+    width: 128px;
+    height: 128px;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    @include flex-center;
+    transition: $transition-default;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    @include respond-to(tablet) {
+      width: 100px;
+      height: 100px;
+    }
+
+    @include respond-to(mobile) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-text-secondary;
+    text-align: center;
+    transition: $transition-default;
+    line-height: 1.25;
+
+    @include respond-to(mobile) {
+      font-size: 0.75rem;
+    }
+  }
+}
