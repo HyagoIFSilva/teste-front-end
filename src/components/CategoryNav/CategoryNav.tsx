@@ -72,3 +72,4 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ onSelectCategory }) =>
     </section>
   );
 };
+

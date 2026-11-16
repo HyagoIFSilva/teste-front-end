@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.product-card {
+  background-color: $color-white;
+  border: 1px solid #EEEEEE;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.25rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  cursor: pointer;
+  transition: $transition-default;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(247, 25, 99, 0.25);
+
+    .product-card__image {
+      transform: scale(1.04);
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 220px;
+    @include flex-center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+
+    @include respond-to(mobile) {
+      height: 180px;
+    }
+  }
+
+  &__image {
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: $color-text;
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+    height: 2.7rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+
+  &__old-price {
+    font-size: 0.8125rem;
+    color: $color-text-light;
+    text-decoration: line-through;
+    margin-bottom: 0.125rem;
+  }
+
+  &__current-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-text;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+
+  &__installments {
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    margin-bottom: 0.5rem;
+  }
+
+  &__shipping {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $color-primary;
+    margin-bottom: 0.875rem;
+  }
+
+  &__buy-btn {
+    @include btn-primary;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+  }
+}

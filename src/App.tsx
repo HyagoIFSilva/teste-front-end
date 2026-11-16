@@ -1,20 +1,26 @@
+import { useState } from 'react';
+import type { Product } from './types/product';
 import { Header } from './components/Header/Header';
 import { HeroBanner } from './components/HeroBanner/HeroBanner';
 import { CategoryNav } from './components/CategoryNav/CategoryNav';
+import { ProductShowcase } from './components/ProductShowcase/ProductShowcase';
 
 export default function App() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const handleOpenProductModal = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
   return (
     <div className="app">
       <Header />
       <main id="main-content">
         <HeroBanner />
         <CategoryNav />
-
-        <div className="container" id="produtos">
-          <header className="section-title">
-            <h2 className="section-title__text">Produtos relacionados</h2>
-          </header>
-        </div>
+        <ProductShowcase onSelectProduct={handleOpenProductModal} />
+        {/* selectedProduct será utilizado no componente ProductModal no próximo passo */}
+        {selectedProduct && <div style={{ display: 'none' }}>{selectedProduct.productName}</div>}
       </main>
     </div>
   );

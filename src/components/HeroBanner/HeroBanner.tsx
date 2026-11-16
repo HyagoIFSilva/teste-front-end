@@ -22,3 +22,4 @@ export const HeroBanner: React.FC = () => {
     </section>
   );
 };
+
