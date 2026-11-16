@@ -52,7 +52,6 @@
       .category-nav__icon-box {
         transform: translateY(-4px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        border-color: rgba(247, 25, 99, 0.3);
       }
 
       .category-nav__name {
@@ -62,9 +61,8 @@
 
     &--active {
       .category-nav__icon-box {
-        border-color: $color-primary;
-        background-color: $color-white;
-        box-shadow: 0 4px 16px rgba(247, 25, 99, 0.15);
+        border-color: rgba(52, 66, 181, 0.2);
+        box-shadow: 0 6px 18px rgba(52, 66, 181, 0.12);
       }
 
       .category-nav__name {
@@ -77,12 +75,12 @@
   &__icon-box {
     width: 128px;
     height: 128px;
-    background-color: #F4F4F4;
+    background-color: $color-white;
     border-radius: 10px;
-    border: 1px solid transparent;
+    border: 1px solid #F0F0F0;
     @include flex-center;
     transition: $transition-default;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 
     @include respond-to(tablet) {
       width: 100px;
@@ -92,6 +90,17 @@
     @include respond-to(mobile) {
       width: 80px;
       height: 80px;
+    }
+  }
+
+  &__image {
+    max-width: 62px;
+    max-height: 62px;
+    object-fit: contain;
+
+    @include respond-to(mobile) {
+      max-width: 44px;
+      max-height: 44px;
     }
   }
 
@@ -108,4 +117,3 @@
     }
   }
 }
-

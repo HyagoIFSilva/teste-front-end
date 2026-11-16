@@ -38,7 +38,7 @@
 
   // 2. Barra Principal
   &__main {
-    padding: 1rem 0;
+    padding: 1.15rem 0;
     border-bottom: 1px solid $color-border-light;
 
     &-container {
@@ -52,17 +52,33 @@
     }
   }
 
+  // Logotipo Oficial Econverse
   &__logo {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    text-decoration: none;
 
-    &-svg {
-      transition: $transition-default;
-      &:hover {
-        opacity: 0.9;
-        transform: scale(1.02);
-      }
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &-circle {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: $color-yellow;
+    }
+
+    &-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: $color-purple;
+      letter-spacing: -0.5px;
+      line-height: 1;
     }
   }
 
@@ -84,7 +100,7 @@
       width: 100%;
       height: 48px;
       padding: 0 3.25rem 0 1.5rem;
-      background-color: $color-bg-light;
+      background-color: #F6F5F2;
       border: 1px solid transparent;
       border-radius: 10px;
       font-size: 0.875rem;
@@ -99,7 +115,7 @@
       &:focus {
         border-color: $color-primary;
         background-color: $color-white;
-        box-shadow: 0 0 0 3px rgba(247, 25, 99, 0.15);
+        box-shadow: 0 0 0 3px rgba(52, 66, 181, 0.15);
       }
     }
 
@@ -162,7 +178,7 @@
     height: 18px;
     border-radius: 50%;
     @include flex-center;
-    box-shadow: 0 2px 4px rgba(247, 25, 99, 0.3);
+    box-shadow: 0 2px 4px rgba(52, 66, 181, 0.3);
   }
 
   // Botão Menu Mobile
@@ -277,13 +293,11 @@
       &--highlight {
         color: $color-primary;
         font-weight: 700;
-      }
 
-      &--premium {
-        color: $color-primary;
-        font-weight: 700;
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 }
-

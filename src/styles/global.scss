@@ -60,21 +60,23 @@ ol {
   list-style: none;
 }
 
+// Classe utilitária container global
 .container {
   @include container;
 }
 
+// Títulos de seção padronizados com traço lateral
 .section-title {
   text-align: center;
   position: relative;
-  margin: 3rem 0 1.5rem;
+  margin: 3.5rem 0 1.25rem;
 
   &__text {
     display: inline-block;
     position: relative;
     font-size: 1.875rem;
     font-weight: 700;
-    color: $color-primary;
+    color: $color-primary; // Azul oficial do Figma
     padding: 0 1.5rem;
     background-color: $color-white;
     z-index: 1;
@@ -96,16 +98,7 @@ ol {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: $color-border;
+    background-color: #DDE6E5;
     z-index: 0;
-  }
-
-  &__subtitle {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: $color-text-secondary;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 }

@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import {
-  TechIcon,
-  SupermarketIcon,
-  DrinksIcon,
-  ToolsIcon,
-  HealthIcon,
-  FitnessIcon,
-  FashionIcon,
-} from '../common/Icons';
+import techIcon from '../../assets/categories/Tecnologia.png';
+import supermarketIcon from '../../assets/categories/Supermercado.png';
+import drinksIcon from '../../assets/categories/Bebida.png';
+import toolsIcon from '../../assets/categories/ferramenta.png';
+import healthIcon from '../../assets/categories/saude.png';
+import fitnessIcon from '../../assets/categories/corrido.png';
+import fashionIcon from '../../assets/categories/roupas.png';
 import './CategoryNav.scss';
 
 interface CategoryItem {
   id: string;
   name: string;
-  icon: React.FC<{ size?: number; color?: string }>;
+  image: string;
 }
 
 const categories: CategoryItem[] = [
-  { id: 'tecnologia', name: 'Tecnologia', icon: TechIcon },
-  { id: 'supermercado', name: 'Supermercado', icon: SupermarketIcon },
-  { id: 'bebidas', name: 'Bebidas', icon: DrinksIcon },
-  { id: 'ferramentas', name: 'Ferramentas', icon: ToolsIcon },
-  { id: 'saude', name: 'Saúde', icon: HealthIcon },
-  { id: 'esportes', name: 'Esportes e Fitness', icon: FitnessIcon },
-  { id: 'moda', name: 'Moda', icon: FashionIcon },
+  { id: 'tecnologia', name: 'Tecnologia', image: techIcon },
+  { id: 'supermercado', name: 'Supermercado', image: supermarketIcon },
+  { id: 'bebidas', name: 'Bebidas', image: drinksIcon },
+  { id: 'ferramentas', name: 'Ferramentas', image: toolsIcon },
+  { id: 'saude', name: 'Saúde', image: healthIcon },
+  { id: 'esportes', name: 'Esportes e Fitness', image: fitnessIcon },
+  { id: 'moda', name: 'Moda', image: fashionIcon },
 ];
 
 interface CategoryNavProps {
@@ -45,21 +43,23 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ onSelectCategory }) =>
       <div className="container category-nav__container">
         <ul className="category-nav__list">
           {categories.map((cat) => {
-            const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
 
             return (
               <li key={cat.id} className="category-nav__item">
                 <button
                   type="button"
-                  className={`category-nav__button ${isActive ? 'category-nav__button--active' : ''}`}
+                  className={`category-nav__button ${
+                    isActive ? 'category-nav__button--active' : ''
+                  }`}
                   onClick={() => handleCategoryClick(cat.id)}
                   aria-pressed={isActive}
                 >
                   <div className="category-nav__icon-box">
-                    <Icon
-                      size={36}
-                      color={isActive ? '#F71963' : '#4E4E4E'}
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="category-nav__image"
                     />
                   </div>
                   <span className="category-nav__name">{cat.name}</span>
@@ -72,4 +72,3 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ onSelectCategory }) =>
     </section>
   );
 };
-

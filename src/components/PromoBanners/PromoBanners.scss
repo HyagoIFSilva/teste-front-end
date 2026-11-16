@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .promo-banners {
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   background-color: $color-white;
 
   &__container {
@@ -17,8 +17,8 @@
   }
 
   &__card {
-    height: 300px;
-    border-radius: 10px;
+    height: 320px;
+    border-radius: 12px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -70,21 +70,8 @@
   }
 
   &__cta {
-    display: inline-block;
-    background-color: $color-primary;
-    color: $color-white;
+    @include btn-yellow;
     font-size: 0.875rem;
-    font-weight: 700;
     padding: 0.75rem 2rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: $transition-default;
-
-    &:hover {
-      background-color: $color-primary-dark;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(247, 25, 99, 0.35);
-    }
   }
 }

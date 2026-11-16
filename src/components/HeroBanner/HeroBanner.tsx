@@ -11,10 +11,10 @@ export const HeroBanner: React.FC = () => {
               Venha conhecer nossas promoções
             </h1>
             <p className="hero-banner__subtitle">
-              <span>50% Off</span> nos produtos
+              <span className="hero-banner__highlight">50% Off</span> nos produtos
             </p>
             <a href="#produtos" className="hero-banner__cta">
-              Ver Produto
+              Ver produto
             </a>
           </div>
         </div>
@@ -22,4 +22,3 @@ export const HeroBanner: React.FC = () => {
     </section>
   );
 };
-

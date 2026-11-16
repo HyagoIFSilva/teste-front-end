@@ -17,7 +17,7 @@ const defaultPromos: PromoBannerItem[] = [
     description: 'Lorem ipsum dolor sit amet, consectetur',
     buttonText: 'CONFIRA',
     imageUrl:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800&auto=format&fit=crop',
     link: '#parceiros',
   },
   {
@@ -26,7 +26,7 @@ const defaultPromos: PromoBannerItem[] = [
     description: 'Lorem ipsum dolor sit amet, consectetur',
     buttonText: 'CONFIRA',
     imageUrl:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop',
     link: '#parceiros',
   },
 ];
@@ -39,7 +39,9 @@ export const PromoBanners: React.FC = () => {
           <article
             key={promo.id}
             className="promo-banners__card"
-            style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${promo.imageUrl})` }}
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.7)), url(${promo.imageUrl})`,
+            }}
           >
             <div className="promo-banners__content">
               <h3 className="promo-banners__title">{promo.title}</h3>

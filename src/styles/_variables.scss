@@ -1,17 +1,22 @@
+// Paleta de Cores Oficial do Figma (Econverse)
+$color-primary: #3442B5;        // Azul Oficial dos botões COMPRAR e títulos
+$color-primary-dark: #273299;   // Azul escuro para hover
+$color-primary-light: #EEF1FD;  // Azul suave para backgrounds e detalhes
 
-$color-primary: #F71963;
-$color-primary-dark: #D41453;
-$color-primary-light: #FFF1F5;
+$color-yellow: #F7BC06;         // Amarelo Oficial dos botões CTA (Ver produto, CONFIRA, INSCREVER)
+$color-yellow-dark: #E0A700;    // Amarelo escuro para hover
+$color-yellow-light: #FFF8E1;
+
+$color-purple: #271C47;         // Roxo Escuro Oficial da Newsletter
 
 $color-dark: #2A2A2A;
-$color-text: #3F3F40;
+$color-text: #3F3F40;           // Cinza Escuro dos preços e textos
 $color-text-secondary: #4E4E4E;
-$color-text-muted: #808080;
+$color-text-muted: #808080;     // Cinza Médio dos preços anteriores riscados
 $color-text-light: #9F9F9F;
-$color-text-old-price: #808080;
 
 $color-border: #DDE6E5;
-$color-border-light: #F0F0F0;
+$color-border-light: #E8E8E8;
 $color-border-card: #E5E5E5;
 
 $color-bg-gray: #F4F4F4;
@@ -19,23 +24,25 @@ $color-bg-light: #F6F5F2;
 $color-bg-subtle: #FAFAFA;
 $color-white: #FFFFFF;
 
-
+// Tipografia
 $font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
+// Breakpoints
 $breakpoint-mobile-sm: 360px;
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-desktop-lg: 1280px;
 
-
+// Dimensões do Container
 $container-max-width: 1280px;
 $container-padding: 1.5rem;
 
+// Sombras
 $shadow-card: 0 4px 14px rgba(0, 0, 0, 0.08);
 $shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
 $shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.22);
 $shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
 
-
+// Transições
 $transition-default: all 0.25s ease-in-out;

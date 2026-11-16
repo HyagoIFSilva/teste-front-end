@@ -3,25 +3,139 @@
 
 .footer {
   width: 100%;
-  background-color: #2A2A2A;
-  color: $color-white;
-  margin-top: 2rem;
+  margin-top: 3rem;
 
-  &__main {
-    padding: 3.5rem 0;
+  // 1. Faixa Superior da Newsletter (Fundo Roxo Oficial)
+  &__newsletter {
+    background-color: $color-purple;
+    color: $color-white;
+    padding: 3rem 0;
 
-    @include respond-to(tablet) {
-      padding: 2.5rem 0;
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+
+      @include respond-to(tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
     }
+
+    &-info {
+      max-width: 440px;
+    }
+
+    &-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+
+      @include respond-to(mobile) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-subtitle {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+      max-width: 620px;
+
+      @include respond-to(tablet) {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    &-inputs {
+      display: flex;
+      gap: 0.75rem;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+    }
+
+    &-input {
+      flex: 1;
+      height: 48px;
+      padding: 0 1.25rem;
+      background-color: $color-white;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: $color-text;
+      outline: none;
+      transition: $transition-default;
+
+      &::placeholder {
+        color: #9F9F9F;
+      }
+
+      &:focus {
+        border-color: $color-yellow;
+      }
+    }
+
+    &-btn {
+      @include btn-yellow;
+      height: 48px;
+      padding: 0 2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    &-checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &-checkbox {
+      accent-color: $color-yellow;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    &-success {
+      font-size: 0.8125rem;
+      color: #69F0AE;
+      font-weight: 600;
+    }
+  }
+
+  // 2. Rodapé Principal (Fundo Claro)
+  &__main {
+    background-color: #FAFAFA;
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid #EEEEEE;
   }
 
   &__container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.2fr 2fr;
-    gap: 2.5rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
 
-    @include respond-to(desktop-sm) {
-      grid-template-columns: repeat(2, 1fr);
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
 
@@ -31,32 +145,39 @@
     }
   }
 
-  &__col-title {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: $color-white;
-    margin-bottom: 1.25rem;
-  }
-
-  &__nav-list {
+  &__brand-col {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    gap: 1.25rem;
   }
 
-  &__link {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #E0E0E0;
-    transition: $transition-default;
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    &:hover {
-      color: $color-primary;
-      padding-left: 4px;
+    &-circle {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: $color-yellow;
     }
+
+    &-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: $color-purple;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+  }
+
+  &__brand-desc {
+    font-size: 0.8125rem;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    max-width: 320px;
   }
 
   &__socials {
@@ -65,8 +186,8 @@
     gap: 1.25rem;
   }
 
-  &__social-icon {
-    color: $color-white;
+  &__social-link {
+    color: $color-purple;
     transition: $transition-default;
 
     &:hover {
@@ -75,163 +196,41 @@
     }
   }
 
-  &__payment-methods {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  &__payment-badge {
-    background-color: $color-white;
-    color: #2A2A2A;
-    font-size: 0.65rem;
-    font-weight: 800;
-    padding: 0.4rem 0.65rem;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  // Newsletter Box
-  &__newsletter-box {
-    background-color: $color-white;
-    color: $color-text;
-    padding: 2rem 1.75rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @include respond-to(mobile) {
-      padding: 1.5rem 1.25rem;
-    }
-  }
-
-  &__newsletter-title {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.4;
-    color: $color-text;
-    margin-bottom: 0.5rem;
-
-    strong {
-      font-weight: 700;
-      display: block;
-      color: #000000;
-    }
-  }
-
-  &__newsletter-subtitle {
-    font-size: 0.75rem;
-    color: $color-text-secondary;
-    line-height: 1.4;
+  &__col-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: $color-purple;
     margin-bottom: 1.25rem;
   }
 
-  &__newsletter-form {
+  &__col-list {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  &__newsletter-input {
-    flex: 1;
-    height: 44px;
-    padding: 0 1rem;
-    background-color: #F8F8F8;
-    border: 1px solid #DDDDDD;
-    border-radius: 4px;
+  &__link {
     font-size: 0.8125rem;
-    color: $color-text;
-    outline: none;
+    color: $color-text-secondary;
     transition: $transition-default;
 
-    &::placeholder {
-      color: #9F9F9F;
-      font-size: 0.75rem;
-    }
-
-    &:focus {
-      border-color: $color-primary;
-      background-color: $color-white;
+    &:hover {
+      color: $color-primary;
     }
   }
 
-  &__newsletter-btn {
-    @include btn-primary;
-    height: 44px;
-    padding: 0 1.5rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-  }
-
-  &__newsletter-success {
-    margin-top: 0.75rem;
-    font-size: 0.75rem;
-    color: #2e7d32;
-    font-weight: 600;
-  }
-
-  // Barra de Copyright
+  // 3. Barra Inferior de Copyright
   &__bottom {
-    background-color: #1A1A1A;
+    background-color: #FAFAFA;
     padding: 1.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
 
     &-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-
-      @include respond-to(tablet) {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.25rem;
-      }
+      text-align: center;
     }
   }
 
   &__copyright {
-    font-size: 0.6875rem;
-    color: #8C8C8C;
-    line-height: 1.6;
-    max-width: 720px;
-  }
-
-  &__credits {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-shrink: 0;
-  }
-
-  &__credit-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 0.875rem;
-
-    @include respond-to(tablet) {
-      align-items: center;
-    }
-
-    small {
-      font-size: 0.625rem;
-      color: #8C8C8C;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    strong {
-      font-size: 1rem;
-      font-weight: 800;
-      color: $color-white;
-      letter-spacing: -0.5px;
-    }
-  }
-
-  &__credit-highlight {
-    color: $color-primary !important;
+    font-size: 0.75rem;
+    color: #9F9F9F;
   }
 }

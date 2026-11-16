@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .brand-showcase {
-  padding: 1.5rem 0 3.5rem;
+  padding: 1.5rem 0 3rem;
   background-color: $color-white;
 
   &__list {
@@ -50,12 +50,37 @@
 
     &:hover {
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 10px 25px rgba(247, 25, 99, 0.15);
-      border-color: rgba(247, 25, 99, 0.3);
+      box-shadow: 0 10px 25px rgba(52, 66, 181, 0.15);
+      border-color: rgba(52, 66, 181, 0.3);
     }
   }
 
-  &__logo {
-    transition: $transition-default;
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  &__logo-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $color-yellow;
+
+    @include respond-to(mobile) {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &__logo-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: $color-purple;
+    letter-spacing: -0.5px;
+
+    @include respond-to(mobile) {
+      font-size: 0.85rem;
+    }
   }
 }

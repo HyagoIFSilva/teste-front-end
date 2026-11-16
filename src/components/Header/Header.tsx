@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Barra Principal (Logo, Busca e Ícones de Ação) */}
+      {/* 2. Barra Principal (Logo Econverse, Busca e Ícones de Ação) */}
       <div className="header__main">
         <div className="container header__main-container">
           {/* Botão Menu Mobile */}
@@ -61,43 +61,20 @@ export const Header: React.FC = () => {
             <span className="header__mobile-burger"></span>
           </button>
 
-          {/* Logotipo VTEX Econverse */}
+          {/* Logotipo Oficial Econverse */}
           <a href="/" className="header__logo" aria-label="Página inicial Econverse">
-            <svg
-              className="header__logo-svg"
-              width="140"
-              height="40"
-              viewBox="0 0 140 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Ícone V estilizado em rosa */}
-              <path
-                d="M14.5 7L24.5 24.32L34.5 7H41L26.5 32H22.5L8 7H14.5Z"
-                fill="#F71963"
-              />
-              <circle cx="24.5" cy="18" r="4" fill="#F71963" />
-              {/* Texto VTEX */}
-              <text
-                x="45"
-                y="26"
-                fontFamily="Poppins, sans-serif"
-                fontSize="24"
-                fontWeight="800"
-                fill="#2A2A2A"
-                letterSpacing="-0.5px"
-              >
-                vtex
-              </text>
-            </svg>
+            <div className="header__logo-wrapper">
+              <span className="header__logo-circle"></span>
+              <span className="header__logo-text">econverse</span>
+            </div>
           </a>
 
-          {}
+          {/* Campo de Busca */}
           <form className="header__search" onSubmit={handleSearchSubmit} role="search">
             <input
               type="text"
               className="header__search-input"
-              placeholder="O que você está procurando?"
+              placeholder="O que você está buscando?"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               aria-label="Campo de busca de produtos"
@@ -168,8 +145,8 @@ export const Header: React.FC = () => {
               </a>
             </li>
             <li className="header__nav-item">
-              <a href="#assinatura" className="header__nav-link header__nav-link--premium">
-                <CrownIcon size={16} color="#F71963" />
+              <a href="#assinatura" className="header__nav-link">
+                <CrownIcon size={16} color="#9F9F9F" />
                 <span>ASSINATURA</span>
               </a>
             </li>
@@ -179,4 +156,3 @@ export const Header: React.FC = () => {
     </header>
   );
 };
-

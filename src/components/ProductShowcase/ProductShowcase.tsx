@@ -15,10 +15,18 @@ const TABS: CategoryTab[] = [
 ];
 
 interface ProductShowcaseProps {
+  title?: string;
+  showTabs?: boolean;
+  showViewAllLink?: boolean;
   onSelectProduct: (product: Product) => void;
 }
 
-export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onSelectProduct }) => {
+export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
+  title = 'Produtos relacionados',
+  showTabs = true,
+  showViewAllLink = false,
+  onSelectProduct,
+}) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<CategoryTab>('CELULAR');
@@ -53,7 +61,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onSelectProduc
   const handleScroll = (direction: 'left' | 'right') => {
     if (!carouselTrackRef.current) return;
 
-    // Rola a largura de um card + gap
     const container = carouselTrackRef.current;
     const cardWidth = container.firstElementChild
       ? (container.firstElementChild as HTMLElement).offsetWidth + 20
@@ -66,34 +73,45 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onSelectProduc
   return (
     <section className="product-showcase" aria-label="Vitrine de produtos relacionados">
       <div className="container">
-        {/* Título com linhas horizontais laterais */}
+        {/* Título com linhas horizontais laterais em Azul */}
         <div className="section-title">
-          <h2 className="section-title__text">Produtos relacionados</h2>
+          <h2 className="section-title__text">{title}</h2>
         </div>
 
+        {/* Link Ver todos abaixo do título (para vitrines secundárias) */}
+        {showViewAllLink && (
+          <div className="product-showcase__view-all-wrapper">
+            <a href="#ver-todos" className="product-showcase__view-all-link">
+              Ver todos
+            </a>
+          </div>
+        )}
+
         {/* Abas de Categorias */}
-        <nav className="product-showcase__tabs-container" aria-label="Filtrar por categoria">
-          <ul className="product-showcase__tabs">
-            {TABS.map((tab) => {
-              const isActive = activeTab === tab;
-              return (
-                <li key={tab} className="product-showcase__tab-item">
-                  <button
-                    type="button"
-                    className={`product-showcase__tab-btn ${
-                      isActive ? 'product-showcase__tab-btn--active' : ''
-                    }`}
-                    onClick={() => setActiveTab(tab)}
-                    aria-selected={isActive}
-                    role="tab"
-                  >
-                    {tab}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        {showTabs && (
+          <nav className="product-showcase__tabs-container" aria-label="Filtrar por categoria">
+            <ul className="product-showcase__tabs">
+              {TABS.map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <li key={tab} className="product-showcase__tab-item">
+                    <button
+                      type="button"
+                      className={`product-showcase__tab-btn ${
+                        isActive ? 'product-showcase__tab-btn--active' : ''
+                      }`}
+                      onClick={() => setActiveTab(tab)}
+                      aria-selected={isActive}
+                      role="tab"
+                    >
+                      {tab}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        )}
 
         {/* Carrossel de Produtos */}
         <div className="product-showcase__carousel-wrapper">
