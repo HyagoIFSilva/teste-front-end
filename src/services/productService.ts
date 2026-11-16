@@ -5,12 +5,8 @@ const API_DIRECT_URL =
   'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
 const API_PROXY_URL = '/api/produtos';
 
-/**
- * Busca a lista de produtos da API com resiliência a CORS e fallback para mock local
- */
 export async function fetchProducts(): Promise<Product[]> {
   try {
-    // 1ª tentativa: via Proxy do Vite (evita CORS em desenvolvimento local)
     const res = await fetch(API_PROXY_URL).catch(() => null);
     if (res && res.ok) {
       const data: ProductsApiResponse = await res.json();
@@ -19,7 +15,6 @@ export async function fetchProducts(): Promise<Product[]> {
       }
     }
 
-    // 2ª tentativa: chamada direta na API da Econverse
     const directRes = await fetch(API_DIRECT_URL, {
       method: 'GET',
       headers: {
@@ -34,11 +29,9 @@ export async function fetchProducts(): Promise<Product[]> {
       }
     }
 
-    // Fallback: caso a API da Econverse esteja inacessível ou com CORS bloqueado
-    console.info('Utilizando dados mockados de produtos (Fallback de segurança)');
     return mockProducts;
   } catch (err) {
-    console.warn('Erro ao carregar produtos da API, utilizando fallback local:', err);
+    console.error('Erro ao buscar produtos:', err);
     return mockProducts;
   }
 }

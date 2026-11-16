@@ -18,12 +18,10 @@ export const Header: React.FC = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Buscando por:', searchValue);
   };
 
   return (
     <header className="header">
-      {/* 1. Topbar de Benefícios */}
       <div className="header__topbar">
         <div className="container header__topbar-container">
           <div className="header__benefit-item">
@@ -49,10 +47,8 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Barra Principal (Logo Econverse, Busca e Ícones de Ação) */}
       <div className="header__main">
         <div className="container header__main-container">
-          {/* Botão Menu Mobile */}
           <button
             className="header__mobile-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -61,7 +57,6 @@ export const Header: React.FC = () => {
             <span className="header__mobile-burger"></span>
           </button>
 
-          {/* Logotipo Oficial Econverse */}
           <a href="/" className="header__logo" aria-label="Página inicial Econverse">
             <div className="header__logo-wrapper">
               <span className="header__logo-circle"></span>
@@ -69,7 +64,6 @@ export const Header: React.FC = () => {
             </div>
           </a>
 
-          {/* Campo de Busca */}
           <form className="header__search" onSubmit={handleSearchSubmit} role="search">
             <input
               type="text"
@@ -88,7 +82,6 @@ export const Header: React.FC = () => {
             </button>
           </form>
 
-          {/* Ações do Usuário (Ícones) */}
           <nav className="header__actions" aria-label="Ações da conta e pedidos">
             <a href="#pedidos" className="header__action-item" title="Meus Pedidos">
               <BoxIcon size={24} color="#9F9F9F" />
@@ -107,7 +100,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Menu de Categorias */}
       <nav
         className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}
         aria-label="Categorias principais"

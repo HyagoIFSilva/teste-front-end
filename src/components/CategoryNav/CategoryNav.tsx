@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import techIcon from '../../assets/categories/Tecnologia.png';
 import supermarketIcon from '../../assets/categories/Supermercado.png';
 import drinksIcon from '../../assets/categories/Bebida.png';
 import toolsIcon from '../../assets/categories/ferramenta.png';
@@ -7,34 +8,14 @@ import fitnessIcon from '../../assets/categories/corrido.png';
 import fashionIcon from '../../assets/categories/roupas.png';
 import './CategoryNav.scss';
 
-// Ícone vetorial limpo de Tecnologia (Monitor + Smartphone) idêntico ao Figma, sem artefatos ou fundo
-const TechVectorIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
-  <svg
-    width="58"
-    height="58"
-    viewBox="0 0 60 60"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="category-nav__tech-svg"
-  >
-    {/* Monitor */}
-    <rect x="6" y="10" width="36" height="26" rx="4" stroke={color} strokeWidth="3" />
-    <path d="M19 36v6m-7 0h14" stroke={color} strokeWidth="3" strokeLinecap="round" />
-    {/* Tablet / Smartphone sobreposto à direita */}
-    <rect x="32" y="18" width="18" height="28" rx="4" fill="#FFFFFF" stroke={color} strokeWidth="3" />
-    <circle cx="41" cy="41" r="1.5" fill={color} />
-  </svg>
-);
-
 interface CategoryItem {
   id: string;
   name: string;
-  image?: string;
-  isVector?: boolean;
+  image: string;
 }
 
 const categories: CategoryItem[] = [
-  { id: 'tecnologia', name: 'Tecnologia', isVector: true },
+  { id: 'tecnologia', name: 'Tecnologia', image: techIcon },
   { id: 'supermercado', name: 'Supermercado', image: supermarketIcon },
   { id: 'bebidas', name: 'Bebidas', image: drinksIcon },
   { id: 'ferramentas', name: 'Ferramentas', image: toolsIcon },
@@ -75,15 +56,11 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ onSelectCategory }) =>
                   aria-pressed={isActive}
                 >
                   <div className="category-nav__icon-box">
-                    {cat.isVector ? (
-                      <TechVectorIcon color={isActive ? '#3442B5' : '#4E4E4E'} />
-                    ) : (
-                      <img
-                        src={cat.image}
-                        alt={cat.name}
-                        className="category-nav__image"
-                      />
-                    )}
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="category-nav__image"
+                    />
                   </div>
                   <span className="category-nav__name">{cat.name}</span>
                 </button>

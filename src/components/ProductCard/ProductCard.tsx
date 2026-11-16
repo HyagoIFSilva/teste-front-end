@@ -9,7 +9,6 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenModal }) => {
-  // Utiliza o valor real presente no JSON fornecido pela Econverse
   const currentPrice = product.price;
   const oldPrice = getOldPrice(currentPrice);
   const installmentText = getInstallmentText(currentPrice, 2);

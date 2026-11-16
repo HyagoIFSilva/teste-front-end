@@ -17,14 +17,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
-  // Reseta a quantidade sempre que o modal for aberto com um novo produto
   useEffect(() => {
     if (isOpen) {
       setQuantity(1);
     }
   }, [isOpen, product]);
 
-  // Bloqueia a rolagem do body e adiciona atalho ESC
   useEffect(() => {
     if (!isOpen) return;
 
@@ -49,7 +47,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     return null;
   }
 
-  // Preço formatado fidedigno ao exemplo do Figma (ex: 14990 -> R$ 1.499,90 ou 15000 -> R$ 1.500,00)
   const formattedPrice =
     product.price >= 1000
       ? formatCurrency(product.price === 14990 ? 1499.9 : product.price / 10)
@@ -80,7 +77,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         className="product-modal"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botão de Fechar no canto superior direito */}
         <button
           type="button"
           className="product-modal__close-btn"
@@ -91,7 +87,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         </button>
 
         <div className="product-modal__body">
-          {/* Coluna da Imagem */}
           <div className="product-modal__image-col">
             <img
               src={product.photo}
@@ -104,7 +99,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             />
           </div>
 
-          {/* Coluna das Informações */}
           <div className="product-modal__info-col">
             <h2 id="modal-product-title" className="product-modal__title">
               {product.productName.toUpperCase()}
@@ -126,9 +120,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               Veja mais detalhes do produto &gt;
             </a>
 
-            {/* Ações de Quantidade e Compra (Conforme o layout oficial do Figma) */}
             <div className="product-modal__actions">
-              {/* Seletor com borda cinza clara sutil */}
               <div
                 className="product-modal__quantity-control"
                 aria-label="Controle de quantidade"
@@ -155,7 +147,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 </button>
               </div>
 
-              {/* Botão COMPRAR Amarelo Dourado Oficial do Figma */}
               <button
                 type="button"
                 className="product-modal__buy-btn"
