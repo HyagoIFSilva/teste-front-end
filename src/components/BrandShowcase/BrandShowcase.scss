@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.brand-showcase {
+  padding: 1.5rem 0 3.5rem;
+  background-color: $color-white;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0.5rem 0.25rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include respond-to(tablet) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__circle {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background-color: $color-white;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #F0F0F0;
+    @include flex-center;
+    transition: $transition-default;
+    cursor: pointer;
+
+    @include respond-to(tablet) {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include respond-to(mobile) {
+      width: 110px;
+      height: 110px;
+    }
+
+    &:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(247, 25, 99, 0.15);
+      border-color: rgba(247, 25, 99, 0.3);
+    }
+  }
+
+  &__logo {
+    transition: $transition-default;
+  }
+}
