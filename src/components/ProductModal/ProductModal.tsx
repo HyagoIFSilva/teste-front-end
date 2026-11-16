@@ -17,7 +17,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
-  // Reseta a quantidade sempre que o produto mudar
+  // Reseta a quantidade sempre que o modal for aberto com um novo produto
   useEffect(() => {
     if (isOpen) {
       setQuantity(1);
@@ -49,7 +49,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     return null;
   }
 
-  const displayPrice = product.price > 1000 ? product.price / 100 : product.price;
+  // Preço real do JSON da Econverse
+  const currentPrice = product.price;
 
   const handleDecrease = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -87,7 +88,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         </button>
 
         <div className="product-modal__body">
-          {/* Coluna da Imagem */}
+          {/* Coluna da Imagem Oficial do JSON */}
           <div className="product-modal__image-col">
             <img
               src={product.photo}
@@ -100,14 +101,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             />
           </div>
 
-          {/* Coluna das Informações */}
+          {/* Coluna das Informações Oficiais do JSON */}
           <div className="product-modal__info-col">
             <h2 id="modal-product-title" className="product-modal__title">
               {product.productName}
             </h2>
 
             <div className="product-modal__price">
-              {formatCurrency(displayPrice)}
+              {formatCurrency(currentPrice)}
             </div>
 
             <p className="product-modal__description">
