@@ -48,11 +48,11 @@
       width: 100px;
     }
 
-    // 1. Estado Padrão (INATIVO)
+    // Caixa do Ícone Padrão (INATIVO)
     .category-nav__icon-box {
       width: 128px;
       height: 128px;
-      background-color: #F4F4F4; // Fundo cinza suave quando inativo
+      background-color: #F4F4F4;
       border-radius: 14px;
       border: 1px solid transparent;
       @include flex-center;
@@ -75,12 +75,20 @@
       max-height: 60px;
       object-fit: contain;
       transition: $transition-default;
-      // Garante que o ícone inativo fique na cor neutra/preta do Figma
-      filter: grayscale(100%) opacity(0.8);
+      filter: none;
 
       @include respond-to(mobile) {
         max-width: 44px;
         max-height: 44px;
+      }
+    }
+
+    .category-nav__tech-svg {
+      transition: $transition-default;
+
+      @include respond-to(mobile) {
+        width: 44px;
+        height: 44px;
       }
     }
 
@@ -113,24 +121,22 @@
       }
     }
 
-    // 2. Estado Clicado / Selecionado (ATIVO - exatamente como no print do usuário)
+    // Estado Clicado / Selecionado (ATIVO - exatamente como no print do usuário)
     &--active {
       .category-nav__icon-box {
-        background-color: $color-white; // Fundo branco
-        border: 1.5px solid #D1D6F6;     // Borda azul suave do Figma
+        background-color: $color-white;
+        border: 1.5px solid #D1D6F6;
         box-shadow: 0 6px 18px rgba(52, 66, 181, 0.12);
         transform: translateY(-2px);
       }
 
       .category-nav__image {
-        // Converte o ícone para o Azul Oficial do Figma (#3442B5)
         filter: invert(24%) sepia(85%) saturate(2171%) hue-rotate(227deg) brightness(91%) contrast(93%);
-        opacity: 1;
       }
 
       .category-nav__name {
-        color: $color-primary; // Texto azul
-        font-weight: 700;      // Negrito
+        color: $color-primary;
+        font-weight: 700;
       }
     }
   }

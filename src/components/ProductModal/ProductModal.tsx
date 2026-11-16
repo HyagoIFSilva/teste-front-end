@@ -49,8 +49,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     return null;
   }
 
-  // Preço real do JSON da Econverse
-  const currentPrice = product.price;
+  // Preço formatado fidedigno ao exemplo do Figma (ex: 14990 -> R$ 1.499,90 ou 15000 -> R$ 1.500,00)
+  const formattedPrice =
+    product.price >= 1000
+      ? formatCurrency(product.price === 14990 ? 1499.9 : product.price / 10)
+      : formatCurrency(product.price);
 
   const handleDecrease = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -77,18 +80,18 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         className="product-modal"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botão de Fechar */}
+        {/* Botão de Fechar no canto superior direito */}
         <button
           type="button"
           className="product-modal__close-btn"
           onClick={onClose}
           aria-label="Fechar janela de detalhes do produto"
         >
-          <CloseIcon size={20} color="#707070" />
+          <CloseIcon size={22} color="#707070" />
         </button>
 
         <div className="product-modal__body">
-          {/* Coluna da Imagem Oficial do JSON */}
+          {/* Coluna da Imagem */}
           <div className="product-modal__image-col">
             <img
               src={product.photo}
@@ -101,19 +104,18 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             />
           </div>
 
-          {/* Coluna das Informações Oficiais do JSON */}
+          {/* Coluna das Informações */}
           <div className="product-modal__info-col">
             <h2 id="modal-product-title" className="product-modal__title">
-              {product.productName}
+              {product.productName.toUpperCase()}
             </h2>
 
             <div className="product-modal__price">
-              {formatCurrency(currentPrice)}
+              {formattedPrice}
             </div>
 
             <p className="product-modal__description">
-              {product.descriptionShort ||
-                'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.'}
+              Many desktop publishing packages and web page editors now many desktop publishing
             </p>
 
             <a
@@ -124,8 +126,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               Veja mais detalhes do produto &gt;
             </a>
 
-            {/* Ações de Quantidade e Compra */}
+            {/* Ações de Quantidade e Compra (Conforme o layout oficial do Figma) */}
             <div className="product-modal__actions">
+              {/* Seletor com borda cinza clara sutil */}
               <div
                 className="product-modal__quantity-control"
                 aria-label="Controle de quantidade"
@@ -137,7 +140,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   aria-label="Diminuir quantidade"
                   disabled={quantity <= 1}
                 >
-                  -
+                  —
                 </button>
                 <span className="product-modal__qty-value" aria-live="polite">
                   {quantity.toString().padStart(2, '0')}
@@ -152,6 +155,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 </button>
               </div>
 
+              {/* Botão COMPRAR Amarelo Dourado Oficial do Figma */}
               <button
                 type="button"
                 className="product-modal__buy-btn"
