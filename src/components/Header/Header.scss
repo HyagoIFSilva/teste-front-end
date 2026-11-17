@@ -9,7 +9,6 @@
   top: 0;
   z-index: 100;
 
-  // 1. Topbar
   &__topbar {
     border-bottom: 1px solid $color-border-light;
     padding: 0.5rem 0;
@@ -36,7 +35,6 @@
     }
   }
 
-  // 2. Barra Principal
   &__main {
     padding: 1.15rem 0;
     border-bottom: 1px solid $color-border-light;
@@ -52,7 +50,6 @@
     }
   }
 
-  // Logotipo Oficial Econverse
   &__logo {
     display: flex;
     align-items: center;
@@ -82,7 +79,6 @@
     }
   }
 
-  // Campo de Busca
   &__search {
     flex: 1;
     max-width: 630px;
@@ -136,7 +132,6 @@
     }
   }
 
-  // Ações do Usuário (Ícones)
   &__actions {
     display: flex;
     align-items: center;
@@ -181,7 +176,6 @@
     box-shadow: 0 2px 4px rgba(52, 66, 181, 0.3);
   }
 
-  // Botão Menu Mobile
   &__mobile-toggle {
     display: none;
     width: 32px;
@@ -222,7 +216,6 @@
     }
   }
 
-  // 3. Menu de Categorias
   &__nav {
     border-top: 1px solid $color-border-light;
     background-color: $color-white;

@@ -60,12 +60,10 @@ ol {
   list-style: none;
 }
 
-// Classe utilitária container global
 .container {
   @include container;
 }
 
-// Títulos de seção padronizados com traço lateral
 .section-title {
   text-align: center;
   position: relative;
@@ -76,7 +74,7 @@ ol {
     position: relative;
     font-size: 1.875rem;
     font-weight: 700;
-    color: $color-primary; // Azul oficial do Figma
+    color: $color-primary;
     padding: 0 1.5rem;
     background-color: $color-white;
     z-index: 1;

@@ -1,6 +1,5 @@
 @use 'variables' as *;
 
-// Mixins Responsivos (Mobile First / Breakpoints)
 @mixin respond-to($breakpoint) {
   @if $breakpoint == mobile {
     @media (max-width: #{$breakpoint-mobile}) {
@@ -21,7 +20,6 @@
   }
 }
 
-// Mixin de Container Centralizado
 @mixin container {
   width: 100%;
   max-width: $container-max-width;
@@ -36,7 +34,6 @@
   }
 }
 
-// Flexbox Helpers
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -54,7 +51,6 @@
   flex-direction: column;
 }
 
-// Truncate Text
 @mixin text-truncate($lines: 1) {
   @if $lines == 1 {
     white-space: nowrap;
@@ -68,7 +64,6 @@
   }
 }
 
-// Botão Primário Azul (COMPRAR)
 @mixin btn-primary {
   display: inline-flex;
   align-items: center;
@@ -104,7 +99,6 @@
   }
 }
 
-// Botão Dourado Amarelo (Ver produto, CONFIRA, INSCREVER)
 @mixin btn-yellow {
   display: inline-flex;
   align-items: center;

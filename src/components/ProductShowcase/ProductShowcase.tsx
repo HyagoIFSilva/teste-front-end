@@ -73,12 +73,10 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   return (
     <section className="product-showcase" aria-label="Vitrine de produtos relacionados">
       <div className="container">
-        {/* Título com linhas horizontais laterais em Azul */}
         <div className="section-title">
           <h2 className="section-title__text">{title}</h2>
         </div>
 
-        {/* Link Ver todos abaixo do título (para vitrines secundárias) */}
         {showViewAllLink && (
           <div className="product-showcase__view-all-wrapper">
             <a href="#ver-todos" className="product-showcase__view-all-link">
@@ -87,7 +85,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </div>
         )}
 
-        {/* Abas de Categorias */}
         {showTabs && (
           <nav className="product-showcase__tabs-container" aria-label="Filtrar por categoria">
             <ul className="product-showcase__tabs">
@@ -113,9 +110,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </nav>
         )}
 
-        {/* Carrossel de Produtos */}
         <div className="product-showcase__carousel-wrapper">
-          {/* Botão Anterior */}
           <button
             type="button"
             className="product-showcase__nav-btn product-showcase__nav-btn--prev"
@@ -125,7 +120,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <ChevronLeftIcon size={28} color="#3F3F40" />
           </button>
 
-          {/* Trilho dos Produtos */}
           <div className="product-showcase__track" ref={carouselTrackRef}>
             {loading ? (
               <div className="product-showcase__loading">
@@ -141,7 +135,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             )}
           </div>
 
-          {/* Botão Próximo */}
           <button
             type="button"
             className="product-showcase__nav-btn product-showcase__nav-btn--next"

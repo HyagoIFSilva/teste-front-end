@@ -89,7 +89,6 @@ export const CrownIcon: React.FC<IconProps> = ({ size = 20, color = 'currentColo
   </svg>
 );
 
-// Ícones das Categorias de Destaque
 export const TechIcon: React.FC<IconProps> = ({ size = 32, color = 'currentColor', ...props }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />

@@ -22,7 +22,6 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="footer">
-      {/* 1. Faixa Superior da Newsletter (Fundo Roxo Escuro Oficial) */}
       <section className="footer__newsletter" aria-label="Inscrição na newsletter">
         <div className="container footer__newsletter-container">
           <div className="footer__newsletter-info">
@@ -72,17 +71,15 @@ export const Footer: React.FC = () => {
 
             {subscribed && (
               <span className="footer__newsletter-success">
-                ✓ Inscrição realizada com sucesso!
+                ✔ Inscrição realizada com sucesso!
               </span>
             )}
           </form>
         </div>
       </section>
 
-      {/* 2. Rodapé Principal (Fundo Branco/Claro) */}
       <div className="footer__main">
         <div className="container footer__container">
-          {/* Coluna 1: Logo, Descrição e Redes Sociais */}
           <div className="footer__brand-col">
             <div className="footer__logo">
               <span className="footer__logo-circle"></span>
@@ -114,7 +111,6 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Coluna 2: Institucional */}
           <div className="footer__col">
             <h4 className="footer__col-title">Institucional</h4>
             <ul className="footer__col-list">
@@ -124,7 +120,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Coluna 3: Ajuda */}
           <div className="footer__col">
             <h4 className="footer__col-title">Ajuda</h4>
             <ul className="footer__col-list">
@@ -134,7 +129,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Coluna 4: Termos */}
           <div className="footer__col">
             <h4 className="footer__col-title">Termos</h4>
             <ul className="footer__col-list">
@@ -146,7 +140,6 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Barra Inferior de Copyright */}
       <div className="footer__bottom">
         <div className="container footer__bottom-container">
           <p className="footer__copyright">

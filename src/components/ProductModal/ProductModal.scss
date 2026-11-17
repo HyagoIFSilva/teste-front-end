@@ -148,7 +148,6 @@
     }
   }
 
-  // Caixa de quantidade com borda cinza clara idêntica ao Figma
   &__quantity-control {
     display: inline-flex;
     align-items: center;
@@ -199,7 +198,6 @@
     color: #041E50;
   }
 
-  // Botão COMPRAR Amarelo Dourado Oficial
   &__buy-btn {
     @include btn-yellow;
     height: 44px;
