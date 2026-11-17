@@ -47,10 +47,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     return null;
   }
 
-  const formattedPrice =
-    product.price >= 1000
-      ? formatCurrency(product.price === 14990 ? 1499.9 : product.price / 10)
-      : formatCurrency(product.price);
+  const formattedPrice = formatCurrency(product.price);
 
   const handleDecrease = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
