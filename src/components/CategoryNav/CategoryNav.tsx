@@ -12,10 +12,11 @@ interface CategoryItem {
   id: string;
   name: string;
   image: string;
+  hasColoredBg?: boolean;
 }
 
 const categories: CategoryItem[] = [
-  { id: 'tecnologia', name: 'Tecnologia', image: techIcon },
+  { id: 'tecnologia', name: 'Tecnologia', image: techIcon, hasColoredBg: true },
   { id: 'supermercado', name: 'Supermercado', image: supermarketIcon },
   { id: 'bebidas', name: 'Bebidas', image: drinksIcon },
   { id: 'ferramentas', name: 'Ferramentas', image: toolsIcon },
@@ -59,7 +60,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ onSelectCategory }) =>
                     <img
                       src={cat.image}
                       alt={cat.name}
-                      className="category-nav__image"
+                      className={`category-nav__image${cat.hasColoredBg ? ' category-nav__image--no-filter' : ''}`}
                     />
                   </div>
                   <span className="category-nav__name">{cat.name}</span>
